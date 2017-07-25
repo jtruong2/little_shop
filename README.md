@@ -2,7 +2,7 @@
 
 # Little Shop
 
-Pizza Planet is an online pizza ordering service used to satisfy the insatiable cravings for people and aliens alike
+Pizza Planet is an online pizza ordering service used to satisfy the insatiable cravings for people and aliens alike.
 
 ## Collaborators
 Eddie R.  https://github.com/erose357
