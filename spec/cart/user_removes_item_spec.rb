@@ -10,8 +10,8 @@ RSpec.describe "As a guest" do
     click_on "Remove", :match => :first
 
     expect(current_path).to eq('/cart')
-    expect(page).to have_content("Successfully removed #{item.name} from your cart."
-    expect(page).to have_link("#{item.name}")
+    expect(page).to have_content("Successfully removed #{item.name} from your cart.")
+    expect(page).to have_link("#{item.title}")
     expect(page).to_not have_content(item.description)
   end
 end

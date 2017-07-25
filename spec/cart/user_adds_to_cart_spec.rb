@@ -11,10 +11,10 @@ RSpec.describe "As a guest" do
     click_on "Cart"
 
     expect(current_path).to eq('/cart')
-    expect(page).to have_content(item.url)
+    expect(page).to have_content(item.image)
     expect(page).to have_content(item.title)
     expect(page).to have_content(item.description)
     expect(page).to have_content(item.price)
-    expect(page).to have_content(10) #need total price
+    expect(page).to have_content("Total $5")
   end
 end
