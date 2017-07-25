@@ -10,8 +10,8 @@ RSpec.describe "User sees all items"  do
 
    expect(current_path).to eq('/menu')
 
-   expect(page).to have_content(item1.name)
-   expect(page).to have_content(item2.name)
-   expect(page).to have_content(item3.name)
+   expect(page).to have_content(item1.title)
+   expect(page).to have_content(item2.title)
+   expect(page).to have_content(item3.title)
   end
 end
