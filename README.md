@@ -6,8 +6,11 @@ Pizza Planet is an online pizza ordering service used to satisfy the insatiable 
 
 ## Collaborators
 Eddie R.  https://github.com/erose357
+
 Bret F.   https://github.com/bretfunk
+
 Will R.   https://github.com/wratterman
+
 Jimmy T.  https://github.com/jtruong2
 
 ## Installing / Getting started
