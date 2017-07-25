@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :item do
     sequence :name do |i|
-      "name#{i}"
+     "item#{i}"
     end
+    price "9.99"
     category
-    price "5.00"
   end
 end
