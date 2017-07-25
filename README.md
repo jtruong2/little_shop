@@ -1,24 +1,27 @@
-# README
+<!-- ![Logo of the project](https://raw.githubusercontent.com/jehna/readme-best-practices/master/sample-logo.png) -->
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Little Shop
 
-Things you may want to cover:
+Pizza Planet is an online pizza ordering service used to satisfy the insatiable cravings for people and aliens alike
 
-* Ruby version
+## Collaborators
+Eddie R.  https://github.com/erose357
+Bret F.   https://github.com/bretfunk
+Will R.   https://github.com/wratterman
+Jimmy T.  https://github.com/jtruong2
 
-* System dependencies
+## Installing / Getting started
 
-* Configuration
+Clone and bundle install
+Run rails server
+Navigate to localhost:3000
 
-* Database creation
+## Features
 
-* Database initialization
+*Users can signup/login/logout
 
-* How to run the test suite
+*Users can add/remove default pizzas to cart(order)
 
-* Services (job queues, cache servers, search engines, etc.)
+*Users can build their own pizzas and add to cart(order)
 
-* Deployment instructions
-
-* ...
+*Admins can create default pizzas/ categories/ items/ ingredients
