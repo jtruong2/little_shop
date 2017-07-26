@@ -4,7 +4,7 @@ FactoryGirl.define do
      "item#{i}"
     end
     price "9.99"
-    image "image.com"
+    image "/assets/images/cheese.png"
     description "finger-licking good"
     category
   end
