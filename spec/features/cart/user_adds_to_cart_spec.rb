@@ -15,6 +15,6 @@ RSpec.describe "As a guest" do
     expect(page).to have_content(item.title)
     expect(page).to have_content(item.description)
     expect(page).to have_content(item.price)
-    expect(page).to have_content("Total $5")
+    expect(page).to have_content("Cart Total: $#{item.price}")
   end
 end

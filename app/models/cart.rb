@@ -33,4 +33,10 @@ attr_reader :contents
    def quantity(item)
     contents[item.id.to_s]
    end
+
+   def total
+     items.map do |item|
+       item.price
+     end.sum
+   end
 end

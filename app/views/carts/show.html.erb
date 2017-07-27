@@ -3,10 +3,14 @@
 <% @items.each do |item| %>
   <ul>
     <li>
-      <%= image_tag(item.image) %>
+    <img src="<%= item.image %>">
       <%= item.title %>
+      <%= item.description %>
+<p>      Price: $<%= item.price %></p>
       Qty: <%= @cart.quantity(item) %>
-      <%= link_to "Remove", cart_path(item_id: item.id), method: :delete %>
+      <%= button_to "Remove", cart_path(item_id: item.id), method: :delete %>
+      <%= button_to "Add Item", cart_path(item_id: item.id) %>
     </li>
   </ul>
 <% end %>
+Cart Total: $<%= @cart.total %>

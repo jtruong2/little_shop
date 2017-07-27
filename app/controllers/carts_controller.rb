@@ -8,11 +8,10 @@ class CartsController < ApplicationController
     session[:cart] = @cart.contents
 
     flash[:notice] = "You now have #{pluralize(@cart.count_of(item.id), item.title)}."
-    redirect_to '/menu'
+    send_back
   end
 
   def show
-    byebug
     @items = @cart.items
   end
 
@@ -22,9 +21,17 @@ class CartsController < ApplicationController
     @cart.remove_item(item.id)
 
     session[:cart] = @cart.contents
-
-    flash[:notice] = "You now have #{pluralize(@cart.count_of(item.id), item.title)}."
+    flash[:notice] = %Q[Successfully removed <a href="/menu/#{item.id}">#{ item.title }</a> from your cart.].html_safe
     redirect_to cart_path(@cart)
   end
-end
+  private
 
+  def send_back
+    if request.url == items_url
+      byebug
+      redirect_to items_path
+    else
+      redirect_to cart_path
+    end
+  end
+end
