@@ -33,10 +33,16 @@ attr_reader :contents
    def quantity(item)
     contents[item.id.to_s]
    end
-
+   
    def total
-     items.map do |item|
-       item.price
-     end.sum
+     total_item_price = []
+     @contents.each do |k,v|
+       price = Item.find(k).price
+       total_item_price << (price * v)
+     end
+     return total_item_price.sum
    end
+
+
+
 end
