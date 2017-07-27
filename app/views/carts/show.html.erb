@@ -8,10 +8,17 @@
       <p><%= item.title %></p>
       <p><%= item.description %></p>
       <p>Price: $<%= item.price %></p>
+<<<<<<< HEAD
       <p>Subtotal: $<%= item.price * @cart.quantity(item) %></p>
       Qty: <%= @cart.quantity(item) %>
     <%= button_to "Remove", cart_path(item_id: item.id), method: :delete %>
     <%= button_to "Add Item", cart_path(item_id: item.id) %>
+=======
+      <p>Subtotal: $<%= item.price * @cart.count_of(item.id) %></p>
+      Qty: <%= @cart.count_of(item.id) %>
+      <%= button_to "Remove", cart_path(item_id: item.id), method: :delete %>
+      <%= button_to "Add Item", cart_path(item_id: item.id) %>
+>>>>>>> cda5a489860db255e07fff4199fc221c6264f4d2
     </li>
   </ul>
 <% end %>
