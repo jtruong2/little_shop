@@ -11,7 +11,6 @@ RSpec.describe "As a guest" do
     click_on "view cart"
 
     expect(page).to have_selector("img")
-    #expect(current_path).to eq('/cart')
     expect(page).to have_content(item.title)
     expect(page).to have_content(item.description)
     expect(page).to have_content(item.price)
