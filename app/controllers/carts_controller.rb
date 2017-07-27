@@ -27,8 +27,7 @@ class CartsController < ApplicationController
   private
 
   def send_back
-    if request.url == items_url
-      byebug
+    if request.referrer == items_url
       redirect_to items_path
     else
       redirect_to cart_path
