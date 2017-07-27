@@ -1,9 +1,10 @@
-<h1>Cart</h1>
-
+<div class="jumbotron">
+<h1 class="display-3">Cart<h1>
+</div>
 <% @items.each do |item| %>
   <ul>
     <li>
-    <%= image_tag(item.image) %>
+      <%= image_tag(item.image) %>
       <p><%= item.title %></p>
       <p><%= item.description %></p>
       <p>Price: $<%= item.price %></p>

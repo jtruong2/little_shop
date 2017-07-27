@@ -5,7 +5,7 @@ Category.destroy_all
 
 CATEGORIES = ["pizza", "sandwiches", "drinks", "desserts"]
 ITEMS = ["cheese", "meat-lovers", "veggie", "supreme", "pepperoni"]
-IMAGES = ["cheese.png", "lovers.png", "veggie.png", "supreme.png", "pepperoni.png" ]
+IMAGES = ["cheese.png", "meat-lovers.png", "veggie.png", "supreme.png", "pepperoni.png" ]
 
 CATEGORIES.each do |name|
 category = Category.create(name: name)
