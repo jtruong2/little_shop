@@ -1,4 +1,5 @@
 <h1>Menu</h1>
 <% @items.each do |f| %>
   <%= f.title %>
+  <%= button_to "Add Item", cart_path(item_id: f.id) %>
 <% end %>

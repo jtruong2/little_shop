@@ -1,0 +1,5 @@
+<h1><%= @item.title%></h1>
+<p><%= @item.description%></p>
+<p><%= @item.price %></p>
+<p><%= image_tag(@item.image) %></p>
+<%= button_to "Add Item", cart_path(item_id: @item.id) %>
