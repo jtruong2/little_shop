@@ -1,16 +1,5 @@
 require 'rails_helper'
 RSpec.describe "Visitor adds items to cart" do
-  # scenario "checks out as guest" do
-  #   item = create(:item)
-  #
-  #   visit items_path
-  #   first(:button, "Add Item").click
-  #   click_on "View Cart"
-  #   click_on "Checkout as guest"
-  #
-  #   expect(page).to have_content("Enter information")
-  # end
-  #
   scenario "creates an account and checks out as logged in user" do
     user = create(:user)
     item = create(:item)

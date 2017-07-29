@@ -9,7 +9,7 @@ RSpec.describe "Logged in user visits /orders" do
     click_on "Login"
     fill_in("session[email]", with: user.email)
     fill_in("session[password]", with: user.password)
-    click_on "Log in"
+    find('[name=commit]').click
     click_on "View Orders"
 
     expect(page).to have_content(order.id)
