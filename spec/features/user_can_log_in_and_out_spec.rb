@@ -4,14 +4,14 @@ RSpec.describe "User logs in" do
     scenario "logs into users account" do
       user = create(:user)
 
-      visit "/"
+      visit root_path
       click_on "Login"
-      
+
       expect(current_path).to eq(login_path)
 
       fill_in("session[email]", with: user.email)
       fill_in("session[password]", with: "password")
-      click_on "Login"
+      click_on "Log in"
 
       expect(current_path).to eq("/dashboard")
       expect(page).to have_content("Logged in as #{user.email}")
