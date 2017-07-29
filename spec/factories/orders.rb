@@ -8,6 +8,7 @@ FactoryGirl.define do
     order_state "CO"
     order_zipcode "80202"
     order_phone "3102993847"
+    status 0
 
     trait :with_items do
       transient do
