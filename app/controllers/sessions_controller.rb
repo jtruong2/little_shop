@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def new
-    @user = User.new
   end
 
   def create
@@ -13,5 +12,11 @@ class SessionsController < ApplicationController
       flash[:warning] = "Failed to log in, try again"
       redirect_to new_session_path
     end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    flash[:notice] = "Successfully logged out"
+    redirect_to root_path
   end
 end
