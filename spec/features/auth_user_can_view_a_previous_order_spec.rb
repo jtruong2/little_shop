@@ -2,11 +2,6 @@ require 'rails_helper'
 RSpec.describe do
   context "with valid account and previous order" do
     scenario "Users can view the previous order details" do
-      # As an authenticated user
-      # When I visit "/orders"
-      # Then I should see my past order
-      # And I should see a link to view that order
-      # And when I click that link
       # Then I should see each item that was order with the quantity and line-item subtotals
       # And I should see links to each item's show page
       # And I should see the current status of the order **(ordered, paid, cancelled, completed)**
@@ -27,14 +22,9 @@ RSpec.describe do
 
       visit '/orders'
 
-      click_on "View Order from #{order.created_at}"
-
+      first(".orderlinks").click_link("View Order from #{order.order_date}")
       expect(page).to have_content(order.subtotal)
       expect(page).to have_content(order.total)
-
-
-
-
     end
   end
 end

@@ -1,0 +1,9 @@
+<h1>Order ID: <%= @order.id %></h1>
+<li><p>Ordered At: <%= @order.order_date %></p></li>
+<li><p>Total: <%= @order.total %></p></li>
+<li><p>Address: <%= @order.delivery_address %></p></li>
+<li><p>Phone number: <%= @order.order_phone %></li>
+
+<% @items.each do |item| %>
+  <%= link_to item.title, item_path(item) %>
+<% end %>

@@ -19,6 +19,9 @@ RSpec.describe "Visitor adds items to cart" do
     fill_in("user[zipcode]", with: user.zipcode)
     fill_in("user[phone]", with: user.phone)
     click_on "Register"
+
+    save_and_open_page
+
     click_on "View Cart"
 
     expect(page).to have_content(item.title)
