@@ -5,7 +5,7 @@ RSpec.describe do
       # Then I should see each item that was order with the quantity and line-item subtotals
       user = create(:user)
       order = create(:order, :with_items, item_count: 3, status: 3, user_id: user.id)
-      order1 = create(:order, :with_items, item_count: 3, user_id: user.id)
+      order1 = create(:order, :with_items, item_count: 3, status: 2, user_id: user.id)
 
       visit root_path
       click_on "Login"
@@ -22,6 +22,12 @@ RSpec.describe do
       expect(page).to have_content("Completed")
       expect(page).to have_content(order.order_closed)
       expect(page).to have_content(order.order_date)
+
+      visit "/users/#{user.id}/orders/#{order1.id}"
+
+      expect(page).to have_content(order1.total)
+      expect(page).to have_content("Cancelled")
+      expect(page).to have_content(order1.order_closed)
     end
 
     scenario "It won't see when it was updated at if if it's status isn't completed/cancelled" do
