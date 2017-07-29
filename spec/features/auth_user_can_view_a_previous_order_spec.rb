@@ -15,6 +15,26 @@ RSpec.describe do
       #
       # If the order was completed or cancelled
       # Then I should see a timestamp when the action took place
+      user = create(:user)
+      order = create(:order, :with_items, item_count: 3, user_id: user.id)
+      order1 = create(:order, :with_items, item_count: 3, user_id: user.id)
+
+      visit root_path
+      click_on "Login"
+      fill_in("session[email]", with: user.email)
+      fill_in("session[password]", with: user.password)
+      find('[name=commit]').click
+
+      visit '/orders'
+
+      click_on "View Order from #{order.created_at}"
+
+      expect(page).to have_content(order.subtotal)
+      expect(page).to have_content(order.total)
+
+
+
+
     end
   end
 end
