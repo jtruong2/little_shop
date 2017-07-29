@@ -11,7 +11,7 @@ RSpec.describe "User logs in" do
 
       fill_in("session[email]", with: user.email)
       fill_in("session[password]", with: "password")
-      click_on "Log in"
+      find('[name=commit]').click
 
       expect(current_path).to eq("/dashboard")
       expect(page).to have_content("Logged in as #{user.email}")
