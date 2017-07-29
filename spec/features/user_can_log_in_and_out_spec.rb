@@ -6,7 +6,9 @@ RSpec.describe "User logs in" do
 
       visit "/"
       click_on "Login"
+      
       expect(current_path).to eq(login_path)
+
       fill_in("session[email]", with: user.email)
       fill_in("session[password]", with: "password")
       click_on "Login"
