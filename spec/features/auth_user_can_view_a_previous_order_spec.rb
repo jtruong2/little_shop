@@ -19,6 +19,7 @@ RSpec.describe do
       expect(page).to have_content(order.subtotal)
       expect(page).to have_content(order.total)
       expect(page).to have_link(order.items.first.title)
+      expect(page).to have_link(order.items.first.quantity)
       expect(page).to have_content("Completed")
       expect(page).to have_content(order.order_closed)
       expect(page).to have_content(order.order_date)
