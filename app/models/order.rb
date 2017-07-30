@@ -1,4 +1,12 @@
 class Order < ApplicationRecord
+  #validates :status, presence: true
+  #validates :subtotal, presence: true
+  #validates :total, presence: true
+  #validates :order_address, presence: true
+  #validates :order_city, presence: true
+  #validates :order_state, presence: true
+  #validates :order_zipcode, presence: true
+  #validates :order_phone, presence: true
   belongs_to :user
   has_many :items_orders
   has_many :items, through: :items_orders
@@ -21,6 +29,6 @@ class Order < ApplicationRecord
   private
 
   def fill_order_info
-    
+
   end
 end

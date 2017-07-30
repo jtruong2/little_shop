@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :order do
-    user nil
+    user
     subtotal 1
     total 1
     order_address "123 main st"

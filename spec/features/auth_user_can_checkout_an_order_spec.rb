@@ -2,6 +2,10 @@ require 'rails_helper'
 RSpec.describe do
   context "with valid account" do
     scenario "Users can place a new order" do
+      user = create(:user)
+      item1, item2 = create_list(:item, 2)
+      visit '/menu'
+      click_on "Add Item", :match => :first
       # As a visitor
       # When I add items to my cart
       # And I visit "/cart"
@@ -21,12 +25,13 @@ RSpec.describe do
 
       # And I visit my cart
       visit '/cart'
-
+      expect(page).to have_link("Checkout")
       # And when I click "Checkout"
-      click_link "Checkout"
+      click_link "Checkout", :exact => true
       # Then the order should be placed
 
       # And my current page should be "/orders"
+      expect(current_path).to eq('/orders')
       # And I should see a message "Order was successfully placed"
       # And I should see the order I just placed in a table
     end
