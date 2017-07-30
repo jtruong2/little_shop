@@ -32,7 +32,9 @@ RSpec.describe do
 
       # And my current page should be "/orders"
       expect(current_path).to eq('/orders')
+      expect(page).to have_content("Order was successfully placed")
       # And I should see a message "Order was successfully placed"
+      expect(page).to have_content("Order ID")
       # And I should see the order I just placed in a table
     end
   end

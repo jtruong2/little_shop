@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     fill_in
     @order.save
     order_items(@order)
-    flash[:sucess] = "Order Created!"
+    flash[:sucess] = "Order was successfully placed"
     session[:cart].clear
     redirect_to orders_path
   end
@@ -50,4 +50,3 @@ class OrdersController < ApplicationController
    end
   end
 end
-
