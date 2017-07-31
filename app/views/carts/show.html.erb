@@ -1,23 +1,26 @@
-<div class="jumbotron">
-<h1 class="display-3">Cart<h1>
+<div id="cart" class="jumbotron">
+  <div class="container">
+    <% @items.each do |item| %>
+      <div class="row">
+        <div class="container">
+          <div class="col-md-8"><strong><%= item.title %></strong><%= image_tag(item.image) %>
+          <p class="info"><%= item.description %><p>
+          </div>
+
+          <div class="col-md-4">Price: <%= item.price %><br>
+          Qty: <%= @cart.count_of(item.id) %>
+          </div>
+          <p class="subtotal">Subtotal: $<%= item.price * @cart.count_of(item.id) %></p>
+          <%= button_to "Add Item", cart_path(item_id: item.id), class: "center-block btn btn-success" %>
+          <%= button_to "Remove", cart_path(item_id: item.id), method: :delete, class: "center-block btn btn-danger" %>
+        </div>
+      </div>
+    <% end %>
+    <p class="total">Cart Total: $<%= @cart.total %></p>
+    <% if current_user %>
+        <%= link_to "Checkout", orders_path, id: "create_order", method: :post %>
+    <% else %>
+        <%= link_to "Login or Register to Checkout", login_path %>
+    <% end %>
+  </div>
 </div>
-<% @items.each do |item| %>
-  <ul>
-    <li>
-      <%= image_tag(item.image) %>
-      <p><%= item.title %></p>
-      <p><%= item.description %></p>
-      <p>Price: $<%= item.price %></p>
-      <p>Subtotal: $<%= item.price * @cart.count_of(item.id) %></p>
-      Qty: <%= @cart.count_of(item.id) %>
-      <%= button_to "Remove", cart_path(item_id: item.id), method: :delete %>
-      <%= button_to "Add Item", cart_path(item_id: item.id) %>
-    </li>
-  </ul>
-<% end %>
-Cart Total: $<%= @cart.total %>
-<% if current_user %>
-  <%= link_to "Checkout", orders_path, id: "create_order", method: :post %>
-<% else %>
-<%= link_to "Login or Register to Checkout", login_path %>
-<% end %>

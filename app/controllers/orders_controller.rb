@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
       flash[:notice] = "Something went wrong"
       redirect_to cart_path
     end
+
   end
 
   def show

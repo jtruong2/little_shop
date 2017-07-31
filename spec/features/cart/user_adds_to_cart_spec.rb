@@ -8,7 +8,7 @@ RSpec.describe "As a guest" do
 
     click_on "Add Item"
 
-    click_on "View Cart"
+    click_on "Cart: 1"
 
     expect(page).to have_selector("img")
     expect(page).to have_content(item.title)

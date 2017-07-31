@@ -1,14 +1,16 @@
-<h1>Past Orders</h1>
-<ul>
-  <% @orders.each do |order| %>
-    <li>
-      <div class="orderlinks">
-        <%= link_to "View Order from #{order.order_date}", order_path(order)%>
-      </div>
-    </li>
-    <li><p>Order ID: <%= order.id %></p></li>
-    <li><p>Total: <%= order.total %></p></li>
-    <li><p>Address: <%= order.delivery_address %></p></li>
-    <li><p>Phone number: <%= order.order_phone %></li>
-  <% end %>
-</ul>
+<div class="jumbotron">
+  <div class="container">
+    <h1>Past Orders</h1>
+    <% @orders.each do |order| %>
+      <li>
+        <div class="orderlinks">
+          <%= link_to "View Order from #{order.order_date}", order_path(order)%>
+        </div>
+      </li>
+      <li><p>Order ID: <%= order.id %></p></li>
+      <li><p>Total: <%= order.total %></p></li>
+      <li><p>Address: </p><%= order.delivery_address %></li>
+      <li><p>Phone number: <%= order.order_phone %></li>
+    <% end %>
+  </div>
+</div>
