@@ -6,7 +6,7 @@ RSpec.describe "Visitor adds items to cart" do
 
     visit items_path
     first(:button, "Add Item").click
-    click_on "View Cart"
+    click_on "Cart: 1"
 
     expect(page).to have_content(item.title)
 
@@ -19,7 +19,7 @@ RSpec.describe "Visitor adds items to cart" do
     fill_in("user[zipcode]", with: user.zipcode)
     fill_in("user[phone]", with: user.phone)
     click_on "Register"
-    click_on "View Cart"
+    click_on "Cart: 1"
 
     expect(page).to have_content(item.title)
   end
