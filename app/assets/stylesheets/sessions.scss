@@ -3,25 +3,25 @@
   width: 300px;
   margin: auto;
   background-image: url("navbar_space.jpg");
+  border: 2px solid white;
 }
 
-.email {
+.e-field {
   position: relative;
-  float: center;
-  left: 29px;
-  color: white;
+  width: 70%;
+  left: 20px;
 }
 
-.password {
+.p-field {
   position: relative;
-  float: center;
-  color: white;
+  width: 70%;
+  left: 7%;
 }
 
 .btn {
   position: relative;
   left: 100px;
-  bottom: -30px;
+  bottom: 5px;
 }
 #logtitle {
   position: relative;
