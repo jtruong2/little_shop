@@ -43,6 +43,7 @@ class OrdersController < ApplicationController
     @order.order_zipcode = current_user.zipcode
     @order.order_phone = current_user.phone
   end
+  
   def order_items(order)
    order.items.each do |item|
    qty = @cart.contents["#{item.id}"]
