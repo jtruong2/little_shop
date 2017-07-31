@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :blank_order, only: [:new, :create, :fill_in, :set_address]
+
   def index
     @user = current_user
     @orders = @user.orders
@@ -10,11 +11,12 @@ class OrdersController < ApplicationController
 
   def create
     fill_in
-    @order.save
-    order_items(@order)
-    flash[:sucess] = "Order was successfully placed"
-    session[:cart].clear
-    redirect_to orders_path
+    if @order.save
+      checkout(@order)
+    else
+      flash[:notice] = "Something went wrong"
+      redirect_to cart_path
+    end
   end
 
   def show
@@ -27,6 +29,13 @@ class OrdersController < ApplicationController
 
   def blank_order
     @order = Order.new
+  end
+
+  def checkout(order)
+    order_items(order)
+    flash[:sucess] = "Order was successfully placed"
+    session[:cart].clear
+    redirect_to orders_path
   end
 
   def fill_in
@@ -44,6 +53,7 @@ class OrdersController < ApplicationController
     @order.order_zipcode = current_user.zipcode
     @order.order_phone = current_user.phone
   end
+
   def order_items(order)
    order.item_orders.each do |item_order|
      item = Item.find(item_order.item_id)
