@@ -16,3 +16,8 @@
   </ul>
 <% end %>
 Cart Total: $<%= @cart.total %>
+<% if current_user %>
+  <%= link_to "Checkout", orders_path, id: "create_order", method: :post %>
+<% else %>
+<%= link_to "Login or Register to Checkout", login_path %>
+<% end %>

@@ -6,13 +6,14 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/dashboard", to: "users#show"
+  get '/orders', to: "orders#index"
 
   get '/menu' => 'items#index', :as => :items
   resources :items, only: [:show]
   resources :categories, only: [:index, :show]
   resource :cart, only: [:create, :destroy, :show]
-  resources :users, only: [:new, :create] do
-    resources :orders, only: [:index]
+  resources :users, only: [:new, :create, :show] do
+    resources :orders, only: [:index, :show, :new, :create]
   end
   namespace :admin do
     resources :items, only: [:new, :create]

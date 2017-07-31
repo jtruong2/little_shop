@@ -1,9 +1,14 @@
 <h1>Past Orders</h1>
 <ul>
   <% @orders.each do |order| %>
+    <li>
+      <div class="orderlinks">
+        <%= link_to "View Order from #{order.order_date}", order_path(order)%>
+      </div>
+    </li>
     <li><p>Order ID: <%= order.id %></p></li>
     <li><p>Total: <%= order.total %></p></li>
-    <li><p>Address: <%= order.order_address %> <%= order.order_city %>, <%= order.order_state %> <%= order.order_zipcode %></p></li>
+    <li><p>Address: <%= order.delivery_address %></p></li>
     <li><p>Phone number: <%= order.order_phone %></li>
   <% end %>
 </ul>

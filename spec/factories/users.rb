@@ -9,5 +9,6 @@ FactoryGirl.define do
     state "CO"
     zipcode "80239"
     phone "123456789"
+    #role
   end
 end

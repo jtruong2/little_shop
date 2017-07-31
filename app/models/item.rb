@@ -4,4 +4,6 @@ class Item < ApplicationRecord
   validates :image, presence: true
   validates :description, presence: true
   belongs_to :category
+  has_many :item_orders
+  has_many :orders, through: :item_orders
 end
