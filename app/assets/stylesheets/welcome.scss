@@ -1,0 +1,38 @@
+.carousel {
+  width: 90%;
+  margin: auto;
+  padding-bottom: 50px;
+}
+.item {
+  border: 2px solid white;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+h1 {
+  color: gray;
+  text-align: center;
+
+}
+
+p {
+  color: gray;
+  text-align: center;
+}
+
+#contact {
+  position: relative;
+  width: 800px;
+  height: 700px;
+  margin: auto;
+  bottom: -30px
+}
+
+.directions{
+  position: relative;
+  left: -100px;
+  top: -20px;
+}

@@ -1,7 +1,15 @@
-<div class="jumbotron">
-<h1 class="display-3">Menu<h1>
+<div class="container">
+  <ul class="items_group">
+    <% @items.each do |item| %>
+      <li class="list-group-item">
+        <strong><h3><%= link_to item.title, item_path(item) %></h3></strong>
+        <div class="image"><%= image_tag(item.image, size: "150x150",class: "img-thumbnail img-fluid") %></div>
+        <div class="content"><p class="price"><em><strong>Price: <%= item.price %></strong></em></p>
+        <div class="button"> <%= button_to "Add Item", cart_path(item_id: item.id), class: "center-block btn btn-success" %></div>
+        <div class="info">Spicy jalapeno bacon ipsum dolor amet burgdoggen landjaeger jowl sausage fatback tongue strip steak. Burgdoggen short
+        loin prosciutto, porchetta tri-tip andouille meatloaf. Capicola hamburger shank tail flank ham hock jowl salami bacon bresaola meatball cow.
+        Landjaeger pork loin fatback jowl tail burgdoggen andouille. Swine jerky kielbasa pig sausage drumstick cow doner.</div></div>
+      </li>
+    <% end %>
+  </ul>
 </div>
-<% @items.each do |f| %>
-  <%= f.title %>
-  <%= button_to "Add Item", cart_path(item_id: f.id) %>
-<% end %>

@@ -10,6 +10,12 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
      <link href="css/bootstrap.min.css" rel="stylesheet">
+     <style>
+       #map {
+         height: 400px;
+         width: 100%;
+        }
+     </style>
   </head>
 
   <body>
@@ -17,7 +23,7 @@
   <%= render partial: 'layouts/navbar' %>
 
     <div><% flash.each do |type, message| %>
-      <%= content_tag :div, message.html_safe, class: type %>
+      <%= content_tag :div, message.html_safe, class: Alert.alert_type(type) %>
     <% end %></div>
 
     <%= yield %>
