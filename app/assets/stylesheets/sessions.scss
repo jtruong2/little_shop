@@ -1,0 +1,31 @@
+#login {
+  height: 300px;
+  width: 300px;
+  margin: auto;
+  background-image: url("navbar_space.jpg");
+  border: 2px solid white;
+}
+
+.e-field {
+  position: relative;
+  width: 70%;
+  left: 20px;
+}
+
+.p-field {
+  position: relative;
+  width: 70%;
+  left: 7%;
+}
+
+.btn {
+  position: relative;
+  left: 100px;
+  bottom: 5px;
+}
+#logtitle {
+  position: relative;
+  color: white;
+  left: 80px;
+  top: -10px;
+}

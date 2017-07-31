@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/dashboard", to: "users#show"
   get '/orders', to: "orders#index"
-
+  get "/about", to: "welcome#about"
+  get "/contact", to:"welcome#contact"
   get '/menu' => 'items#index', :as => :items
   resources :items, only: [:show]
   resources :categories, only: [:index, :show]
