@@ -5,7 +5,7 @@ RSpec.describe do
       # Then I should see each item that was order with the quantity and line-item subtotals
       user = create(:user)
       order = create(:order, :with_items, item_count: 3, status: 3, user_id: user.id)
-      # order1 = create(:order, :with_items, item_count: 3, status: 2, user_id: user.id)
+      order1 = create(:order, :with_items, item_count: 3, status: 2, user_id: user.id)
 #WE NEED TO CREATE THE ORDER THROUGH THE MODEL NOT FACTORY GIRL, AND WE NEED TO VISIT '/orders/:order_id'
       visit root_path
       click_on "Login"
@@ -19,12 +19,12 @@ RSpec.describe do
       expect(page).to have_content(order.subtotal)
       expect(page).to have_content(order.total)
       expect(page).to have_link(order.items.first.title)
-      expect(page).to have_content(order.items.first.quantity)
+      expect(page).to have_content(order.items_orders.first.quantity)
       expect(page).to have_content("Completed")
       expect(page).to have_content(order.order_closed)
       expect(page).to have_content(order.order_date)
 
-      visit "/users/#{user.id}/orders/#{order1.id}"
+      visit "/orders/#{order1.id}"
 
       expect(page).to have_content(order1.total)
       expect(page).to have_content("Cancelled")
