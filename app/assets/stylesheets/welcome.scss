@@ -13,8 +13,10 @@ img {
 }
 
 h1 {
+  position: relative;
   color: gray;
-  text-align: center;
+  padding-left: 300px;
+
 
 }
 
@@ -34,5 +36,5 @@ p {
 .directions{
   position: relative;
   left: -100px;
-  top: -20px;
+  top: -10px;
 }

@@ -17,7 +17,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user_id])
+    if session[:user_id].nil?
+      flash[:notice] = "You don't have access to that page!"
+      redirect_to root_path
+    else
+      @user = User.find(session[:user_id])
+    end
   end
 
   def destroy
