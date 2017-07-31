@@ -21,7 +21,7 @@ class CartsController < ApplicationController
     @cart.remove_item(item.id)
 
     session[:cart] = @cart.contents
-    flash[:html_notice] = "Successfully removed #{view_context.link_to("#{item.title}", item_path(item.id))} from your cart.".html_safe
+    flash[:notice] = "Successfully removed #{view_context.link_to("#{item.title}", item_path(item.id))} from your cart.".html_safe
     redirect_to cart_path(@cart)
   end
   private

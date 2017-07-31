@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/dashboard", to: "users#show"
+  get "/about", to: "welcome#about"
+  get "/contact", to:"welcome#contact"
 
   get '/menu' => 'items#index', :as => :items
   resources :items, only: [:show]
