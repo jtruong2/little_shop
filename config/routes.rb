@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create] do
     resources :orders, only: [:index]
   end
-
+  namespace :admin do
+    resources :items, only: [:new, :create]
+  end
 end
