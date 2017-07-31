@@ -19,10 +19,16 @@ p {
   text-align: center;
 }
 
-.jumbotron {
+#contact {
   position: relative;
   width: 800px;
-  height: 700;
+  height: 700px;
   margin: auto;
   bottom: -30px
+}
+
+.directions{
+  position: relative;
+  left: -100px;
+  top: -20px;
 }

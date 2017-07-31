@@ -1,6 +1,12 @@
 // Place all the styles related to the carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#cart {
+  margin: auto;
+  width: 700px;
+  height: 80%;
+}
 .col-md-8 {
   position: relative;
   top: -15px;

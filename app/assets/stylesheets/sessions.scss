@@ -1,21 +1,31 @@
-.jumbotron {
+#login {
   height: 300px;
   width: 300px;
+  margin: auto;
+  background-image: url("navbar_space.jpg");
 }
 
 .email {
   position: relative;
   float: center;
   left: 29px;
+  color: white;
 }
 
 .password {
   position: relative;
   float: center;
+  color: white;
 }
 
 .btn {
   position: relative;
   left: 100px;
   bottom: -30px;
+}
+#logtitle {
+  position: relative;
+  color: white;
+  left: 80px;
+  top: -10px;
 }
