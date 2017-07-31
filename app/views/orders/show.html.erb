@@ -13,7 +13,7 @@
   <%= link_to item.title, item_path(item) %>
 <% end %>
 
-<% @order.item_orders.each do |f| %>
+<% @items_info.each do |f| %>
   <p>Name: <%= Item.find(f.item_id).title  %></p>
   <p>Quantity: <%= f.quantity %></p>
   <p>Subtotal: <%= f.sale_price.to_i * f.quantity.to_i %></p>

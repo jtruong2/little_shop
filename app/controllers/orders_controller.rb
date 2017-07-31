@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @items = @order.items
+    @items_info = @order.item_orders
   end
 
   private
@@ -48,6 +49,7 @@ class OrdersController < ApplicationController
      item = Item.find(item_order.item_id)
      qty = @cart.contents["#{item.id}"]
      item_order.quantity = qty; item_order.sale_price = item.price
+     item_order.save
    end
   end
 end
