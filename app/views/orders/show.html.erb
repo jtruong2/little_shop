@@ -1,0 +1,20 @@
+<h1>Order ID: <%= @order.id %></h1>
+<li><p>Ordered At: <%= @order.order_date %></p></li>
+<li><p>Total: <%= @order.total %></p></li>
+<li><p>Address: <%= @order.delivery_address %></p></li>
+<li><p>Phone number: <%= @order.order_phone %></li>
+<li><p>Status: <%= @order.status.capitalize %></li>
+
+<% unless @order.ordered? || @order.paid? %>
+  <li><p>Completed/Cancelled at: <%= @order.order_closed %></li>
+<% end %>
+
+<% @items.each do |item| %>
+  <%= link_to item.title, item_path(item) %>
+<% end %>
+
+<% @order.items_orders.each do |f| %>
+  <p>Name: <%= Item.find(f.item_id).title  %></p>
+  <p>Quantity: <%= f.quantity %></p>
+  <p>Subtotal: <%= f.sale_price.to_i * f.quantity.to_i %></p>
+<% end %>
