@@ -1,19 +1,7 @@
-<hr class="featurette-divider bg-normal">
-    <div class="row featurette">
-      <div class="col-md-5">
-        <%= image_tag(@item.image, class: "featurette-image img-responsive center-block") %>
-      </div>
-      <div class="col-md-7">
-        <h1 class="featurette-heading">
-          <%= @item.title%>
-        </h1>
-        <p class="lead">
-          <%= @item.description %>
-        </p>
-        <p>
-          <%= @item.price %>
-        </p>
-      </div>
-      <%= button_to "Add Item", cart_path(item_id: @item.id), class: "btn btn-danger" %>
-    </div>
-<hr class="featurette-divider">
+<div class="jumbotron">
+  <h1><%= @item.title %></h1>
+  <p><%= @item.description %></p>
+  <p>Price: <%= @item.price %></p>
+  <%= button_to "Add Item", cart_path(item_id: @item.id), class: "btn btn-success" %>
+  <div class="pic"><%= image_tag(@item.image) %></div>
+</div>
