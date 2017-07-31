@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/about", to: "welcome#about"
   get "/contact", to:"welcome#contact"
   get '/menu' => 'items#index', :as => :items
+  #post '/menu' => 'items#create'
   resources :items, only: [:show]
   resources :categories, only: [:index, :show]
   resource :cart, only: [:create, :destroy, :show]
