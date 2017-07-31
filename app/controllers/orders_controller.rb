@@ -44,9 +44,10 @@ class OrdersController < ApplicationController
     @order.order_phone = current_user.phone
   end
   def order_items(order)
-   order.items.each do |item|
-   qty = @cart.contents["#{item.id}"]
-   order.items_orders.create(order_id: order.id, item_id: item.id, quantity: qty, sale_price: item.price)
+   order.item_orders.each do |item_order|
+     item = Item.find(item_order.item_id)
+     qty = @cart.contents["#{item.id}"]
+     item_order.quantity = qty; item_order.sale_price = item.price
    end
   end
 end
