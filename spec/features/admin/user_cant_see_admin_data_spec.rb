@@ -28,6 +28,7 @@ RSpec.feature "User Authorization" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit new_admin_item_path
     expect(page).to have_content("404")
+    expect(page).to_not have_content("Create New Item")
   end
 end
 
