@@ -10,9 +10,7 @@
             <%= button_to "Add Item", cart_path(item_id: item.id), class: "center-block btn btn-success" %>
           <% end %>
         </div>
-        <div class="info">Spicy jalapeno bacon ipsum dolor amet burgdoggen landjaeger jowl sausage fatback tongue strip steak. Burgdoggen short
-        loin prosciutto, porchetta tri-tip andouille meatloaf. Capicola hamburger shank tail flank ham hock jowl salami bacon bresaola meatball cow.
-        Landjaeger pork loin fatback jowl tail burgdoggen andouille. Swine jerky kielbasa pig sausage drumstick cow doner.</div></div>
+        <div class="info"><%= item.description %></div></div>
       </li>
     <% end %>
   </ul>

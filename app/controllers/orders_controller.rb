@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
     if @order.save
       checkout(@order)
     else
-      flash[:notice] = "Something went wrong"
+      flash[:warning] = "Order failed, please try again."
       redirect_to cart_path
     end
 
@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
 
   def checkout(order)
     order_items(order)
-    flash[:sucess] = "Order was successfully placed"
+    flash[:notice] = "Order was successfully placed"
     session[:cart].clear
     redirect_to orders_path
   end
@@ -54,7 +54,7 @@ class OrdersController < ApplicationController
     @order.order_zipcode = current_user.zipcode
     @order.order_phone = current_user.phone
   end
-  
+
   def order_items(order)
    order.item_orders.each do |item_order|
      item = Item.find(item_order.item_id)

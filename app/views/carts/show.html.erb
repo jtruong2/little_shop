@@ -1,15 +1,11 @@
-<div id="cart" class="jumbotron">
-  <div class="container">
-    <% @items.each do |item| %>
-      <div class="row">
-        <div class="container">
-          <div class="col-md-8"><strong><%= item.title %></strong><%= image_tag(item.image) %>
-          <p class="info"><%= item.description %><p>
-          </div>
 
-          <div class="col-md-4">Price: <%= item.price %><br>
-          Qty: <%= @cart.count_of(item.id) %>
-          </div>
+<div class="container">
+  <ul class="items_group">
+    <% @items.each do |item| %>
+          <p><strong><%= item.title %></strong><%= image_tag(item.image ,size: "10") %>
+          <%= item.description %><p>
+          <p>Price: <%= item.price %></p><br>
+          <p>Qty: <%= @cart.count_of(item.id) %></p>
           <p class="subtotal">Subtotal: $<%= item.price * @cart.count_of(item.id) %></p>
           <% unless item.retired? %>
             <%= button_to "Add Item", cart_path(item_id: item.id), class: "center-block btn btn-success" %>
@@ -25,4 +21,5 @@
         <%= link_to "Login or Register to Checkout", login_path %>
     <% end %>
   </div>
+  </ul>
 </div>

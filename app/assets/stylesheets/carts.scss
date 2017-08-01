@@ -7,20 +7,26 @@
   width: 700px;
   height: 80%;
 }
-.col-md-8 {
-  position: relative;
-  top: -15px;
-  width: 25%;
-  height: 25%;
-}
-.info {
-  position: relative;
-  left: 150px;
-  top: -50px
-}
+
 .subtotal {
   float: right;
 }
+
 .total {
   float: right;
+}
+
+#picinfo {
+  .col-md-8 {
+    position: relative;
+    top: -15px;
+    width: 25%;
+    height: 25%;
+  }
+  .info {
+    position: relative;
+    left: 150px;
+    top: -50px
+  }
+
 }
