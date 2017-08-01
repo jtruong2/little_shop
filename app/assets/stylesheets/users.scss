@@ -5,15 +5,15 @@
   height: 700px;
   background-image: image-url("navbar_space.jpg");
   border: 2px solid white;
+  h1 {
+    position: relative;
+    right: -220px;
+    color: white;
+  }
 }
 #reginfo {
   position: relative;
   left: 70px;
-}
-h1 {
-  position: relative;
-  left: -60px;
-  color: white;
 }
 .form-group {
   color: white;

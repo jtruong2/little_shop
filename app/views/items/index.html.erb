@@ -1,16 +1,30 @@
+
+
+<div id="categorydrop" class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Categories
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <% @categories.each do |cat| %>
+      <li><%= link_to cat.name, category_path(cat) %></li>
+    <% end %>
+  </ul>
+</div>
+
 <div class="container">
   <ul class="items_group">
     <% @items.each do |item| %>
       <li class="list-group-item">
-        <strong><h3><%= link_to item.title, item_path(item) %></h3></strong>
-        <div class="image"><%= image_tag(item.image, size: "150x150",class: "img-thumbnail img-fluid") %></div>
-        <div class="content"><em><strong class="price">Price: <%= item.price %></strong></em></p>
-        <div class="button">
+        <strong><h3 class="itemindextitle"><%= link_to item.title, item_path(item) %></h3></strong>
+        <div class="itemimage"><%= image_tag(item.image, size: "150x150",class: "img-thumbnail img-fluid") %></div>
+        <div class="content"><em><strong class="itemindexprice">Price: <%= item.price %></strong></em></p>
           <% unless item.retired? %>
+          <div class="button">
             <%= button_to "Add Item", cart_path(item_id: item.id), class: "center-block btn btn-success" %>
+          </div>
           <% end %>
-        </div>
-        <div class="info"><%= item.description %></div></div>
+        <div class="iteminfo"><%= item.description %></div></div>
       </li>
     <% end %>
   </ul>

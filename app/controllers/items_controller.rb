@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
     if params[:s]
       @items = Item.search(params[:s])
     end
+    @categories = Category.all
   end
 
   def show
