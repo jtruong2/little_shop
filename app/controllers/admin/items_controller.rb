@@ -1,5 +1,9 @@
 class Admin::ItemsController < Admin::BaseController
 
+  def index
+    @items = Item.all
+  end
+
   def new
     @item = Item.new
   end
@@ -8,7 +12,7 @@ class Admin::ItemsController < Admin::BaseController
     @item = Item.new(item_params)
     if @item.save
       flash[:success] = "#{@item.title} Added!"
-      redirect_to new_admin_item_path
+      redirect_to admin_items_path
     else
       flash[:error] = "Error, #{@item.errors.keys}, #{@item.errors.values}"
       render :new
@@ -22,8 +26,8 @@ class Admin::ItemsController < Admin::BaseController
   def update
     @item = Item.find(params[:id])
    if  @item.update(item_params)
-   flash[:success] = "#{item.title} Updated!"
-   redirect_to admin_new_items_path
+   flash[:success] = "#{@item.title} Updated!"
+   redirect_to admin_items_path
    else
      flash[:error] = "Error"
      render :new

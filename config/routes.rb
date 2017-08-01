@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: "welcome#index"
 
   namespace :admin do
-    resources :items, only: [:new, :create]
+    resources :items, only: [:index, :new, :create, :edit, :update]
   end
   get "/", to: "welcome#index"
   get "/login", to: "sessions#new"
