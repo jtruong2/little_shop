@@ -1,1 +1,27 @@
 <h1>Admin Dashboard</h1>
+
+<h2>All Orders</h2>
+<table>
+  <tr>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zipcode</th>
+    <th>Phone</th>
+    <th>Subtotal</th>
+    <th>Total</th>
+    <th>Status</th>
+  </tr>
+<% @orders.each do |order| %>
+  <tr>
+    <td><%= order.order_address %></td>
+    <td><%= order.order_city %></td>
+    <td><%= order.order_state %></td>
+    <td><%= order.order_zipcode %></td>
+    <td><%= order.order_phone %></td>
+    <td><%= order.subtotal %></td>
+    <td><%= order.total %></td>
+    <td><%= order.status %></td>
+  </tr>
+<% end %>
+</table>
