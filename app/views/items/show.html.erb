@@ -2,6 +2,7 @@
   <h1><%= @item.title %></h1>
   <p><%= @item.description %></p>
   <p>Price: <%= @item.price %></p>
+  <p>Status: Item <%= @item.status.capitalize %></p>
   <% unless @item.retired? %>
     <%= button_to "Add Item", cart_path(item_id: @item.id), class: "btn btn-success" %>
   <% end %>

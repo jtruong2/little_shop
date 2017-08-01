@@ -8,7 +8,7 @@ require 'rails_helper'
 RSpec.describe "Retired Items" do
   it "A user can still access a retired items page but can't add item to cart" do
     user = create(:user)
-    item = create(:item, status: "retired")
+    item = create(:item, status: 1)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit item_path(item)
