@@ -7,23 +7,17 @@
   top: -80px;
 }
 
-.image {
+.itemimage {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   float: left;
   margin: 3px;
   padding: 3px;
   top: -10px;
 }
 
-.info {
-   position: relative;
-   top: -50px;
-   margin: 10px;
-}
-
-.price {
+.itemindexprice {
   position: relative;
   right: -87%;
 }
@@ -47,4 +41,32 @@
 .filter {
   position: relative;
   right: 50px;
+}
+.iteminfo {
+  position: relative;
+  right: -120px;
+}
+#categorydrop {
+  position: relative;
+  right: -100px;
+}
+#categoryshow {
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  img {
+    width: 30%;
+    object-fit: scale-down;
+  }
+}
+#itemshow {
+  width: 50%;
+  height: 70%;
+  margin: auto;
+  h1 {
+    text-align: center;
+  }
+}
+h1 {
+  text-shadow: 2px 2px #ff0000;
 }
