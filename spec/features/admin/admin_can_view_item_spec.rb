@@ -24,13 +24,12 @@ RSpec.describe "Admin can view Items" do
     visit admin_items_path
 
     expect(page).to have_content(item1.title)
-    expect(page).to have_content('/pizza_planet_logo')
     expect(page).to have_content(item1.description)
-    expect(page).to have_content(item1.status)
+    expect(page).to have_content("Active")
     expect(page).to have_link("Item Page")
     expect(page).to have_link("Edit")
     expect(page).to have_content(item2.title)
     expect(page).to have_content(item2.description)
-    expect(page).to have_content(item2.status)
+    expect(page).to have_content('Retired')
   end
 end

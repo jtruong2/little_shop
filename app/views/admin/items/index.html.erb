@@ -8,9 +8,9 @@
           <p><strong>description:</strong> <%= item.description %></p>
           <p><strong>price:</strong> <%= item.price %></p>
           <p><strong>category:</strong> <%= item.category.name %></p>
+          <p><strong>status:</strong> <%= item.status.capitalize %>
           <p><%= link_to "Edit", edit_admin_item_path(item) %></p>
           <p><%= link_to "Item Page", item_path(item) %></p>
-
       <% end %>
     </ul>
   </div>
