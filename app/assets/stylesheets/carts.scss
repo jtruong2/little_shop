@@ -1,26 +1,23 @@
 // Place all the styles related to the carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-#cart {
-  margin: auto;
-  width: 700px;
-  height: 80%;
+.cartimg {
+  width: 150px;
+  height: 150px;
 }
-.col-md-8 {
+#carttitle {
+  float: left;
+}
+#cartadd {
   position: relative;
-  top: -15px;
-  width: 25%;
-  height: 25%;
+  left: -150px;
 }
-.info {
+#cartremove {
   position: relative;
-  left: 150px;
-  top: -50px
+  left: -150px;
+  bottom: -10px;
 }
-.subtotal {
-  float: right;
-}
-.total {
-  float: right;
+.checkoutcart {
+  position: relative;
+  right: -530px;
 }

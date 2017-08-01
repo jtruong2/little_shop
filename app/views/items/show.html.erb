@@ -1,10 +1,12 @@
-<div class="jumbotron">
-  <h1><%= @item.title %></h1>
-  <p><%= @item.description %></p>
-  <p>Price: <%= @item.price %></p>
-  <p>Status: Item <%= @item.status.capitalize %></p>
-  <% unless @item.retired? %>
-    <%= button_to "Add Item", cart_path(item_id: @item.id), class: "btn btn-success" %>
-  <% end %>
-  <div class="pic"><%= image_tag(@item.image) %></div>
+<div id="itemshow" class="jumbotron">
+  <div class="container">
+    <h1><%= @item.title %></h1>
+    <p><%= @item.description %></p>
+    <p>Price: <%= @item.price %></p>
+    <p>Status: Item <%= @item.status.capitalize %></p>
+    <% unless @item.retired? %>
+      <a id="itembtn"><%= button_to "Add Item", cart_path(item_id: @item.id), class: "btn btn-success" %></a>
+    <% end %>
+    <div class="itempic"><%= image_tag(@item.image) %></div>
+  </div>
 </div>

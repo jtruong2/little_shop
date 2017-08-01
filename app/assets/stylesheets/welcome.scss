@@ -7,22 +7,21 @@
   border: 2px solid white;
 }
 
-img {
+#welcome-review {
+  img {
   width: 100%;
   height: auto;
+  }
 }
 
-h1 {
-  position: relative;
-  color: gray;
-  padding-left: 300px;
-
-
-}
-
-p {
-  color: gray;
-  text-align: center;
+#contact{
+  p {
+    color: gray;
+    text-align: center;
+  }
+  #title {
+    left: -50px;
+  }
 }
 
 #contact {
@@ -30,7 +29,12 @@ p {
   width: 800px;
   height: 700px;
   margin: auto;
-  bottom: -30px
+  bottom: -30px;
+  h1 {
+    position: relative;
+    color: gray;
+    padding-left: 300px;
+  }
 }
 
 .directions{

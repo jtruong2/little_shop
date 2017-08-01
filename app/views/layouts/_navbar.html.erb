@@ -26,13 +26,14 @@
               <li><%= link_to "Login", login_path %>
               <li><%= link_to "Create Account", new_user_path %>
             <% else %>
+              <li><%= link_to "My Profile", user_path(current_user) %></li>
               <li><%= link_to "View Orders", orders_path(current_user) %></li>
               <li><%= link_to "Logout", logout_path, method: :delete %></li>
             <% end %>
           </ul>
-          <form class="navbar-form navbar-right" role="search" method="get" id="searchform" action="">
+          <form class="navbar-form navbar-right" role="search" method="get" id="searchform" action='/menu'>
             <div class="form-group">
-              <input name="s" id="s" type="text" class="search-query form-control" autocomplete="off" placeholder="Search...">
+              <input name="s" id="s" type="text" class="search-query form-control" autocomplete="on" placeholder="Search...">
             </div>
           </form>
         </div>

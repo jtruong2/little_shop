@@ -6,4 +6,9 @@ class Item < ApplicationRecord
   has_many :item_orders
   has_many :orders, through: :item_orders
   enum status: %w(active retired)
+
+
+  def self.search(search)
+    where(" title ILIKE ? OR description ILIKE ? OR ", "#{search}", "#{search}")
+  end
 end
