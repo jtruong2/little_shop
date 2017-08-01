@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: "welcome#index"
 
   namespace :admin do
+    get "/dashboard", to: "admin#index"
     resources :items, only: [:index, :new, :create, :edit, :update]
   end
   get "/", to: "welcome#index"

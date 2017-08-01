@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+  class SessionsController < ApplicationController
   def new
   end
 
@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       flash[:notice] = "Logged in as #{@user.email}"
-      redirect_to dashboard_path
+      check_admin
     else
       flash[:warning] = "Failed to log in, try again"
       redirect_to login_path
@@ -18,5 +18,15 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     flash[:notice] = "Successfully logged out"
     redirect_to root_path
+  end
+
+  private
+
+  def check_admin
+    if @user.admin?
+      redirect_to admin_dashboard_path
+    else
+      redirect_to dashboard_path
+    end
   end
 end
