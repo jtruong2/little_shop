@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170730194037) do
+ActiveRecord::Schema.define(version: 20170731214336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 20170730194037) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "item_orders", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "order_id"
+    t.integer "quantity"
+    t.decimal "sale_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_orders_on_item_id"
+    t.index ["order_id"], name: "index_item_orders_on_order_id"
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "title"
     t.string "image"
@@ -29,16 +40,8 @@ ActiveRecord::Schema.define(version: 20170730194037) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
     t.index ["category_id"], name: "index_items_on_category_id"
-  end
-
-  create_table "items_orders", id: false, force: :cascade do |t|
-    t.bigint "order_id", null: false
-    t.bigint "item_id", null: false
-    t.integer "quantity"
-    t.decimal "sale_price"
-    t.index ["item_id", "order_id"], name: "index_items_orders_on_item_id_and_order_id"
-    t.index ["order_id", "item_id"], name: "index_items_orders_on_order_id_and_item_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -69,6 +72,8 @@ ActiveRecord::Schema.define(version: 20170730194037) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "item_orders", "items"
+  add_foreign_key "item_orders", "orders"
   add_foreign_key "items", "categories"
   add_foreign_key "orders", "users"
 end
