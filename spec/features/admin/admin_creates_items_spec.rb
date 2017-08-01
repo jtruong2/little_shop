@@ -19,7 +19,7 @@ RSpec.describe "Admin Creates Items" do
     expect(page).to have_content("Create a New Item")
 
     fill_in("item[title]", with: "Squid")
-    fill_in("item[image]", with: "www.google.com")
+    fill_in("item[image]", with: "https://www.elementstark.com/woocommerce-extension-demos/wp-content/uploads/sites/2/2016/12/pizza.jpg")
     fill_in("item[description]", with: "For Navy Seadogs")
     fill_in("item[price]", with: "5")
     select category.name, :from => "item[category_id]"
@@ -27,7 +27,6 @@ RSpec.describe "Admin Creates Items" do
 
     visit '/menu'
     expect(page).to have_content(item.title)
-    save_and_open_page
     expect(page).to have_content("Squid")
   end
 end

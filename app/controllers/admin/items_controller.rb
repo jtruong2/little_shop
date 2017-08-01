@@ -10,7 +10,7 @@ class Admin::ItemsController < Admin::BaseController
       flash[:success] = "#{@item.title} Added!"
       redirect_to new_admin_item_path
     else
-      flash[:error] = "Error"
+      flash[:error] = "Error, #{@item.errors.keys}, #{@item.errors.values}"
       render :new
     end
   end
@@ -32,6 +32,6 @@ class Admin::ItemsController < Admin::BaseController
 
   private
   def item_params
-    params.require(:item).permit(:title, :description, :image, :price)
+    params.require(:item).permit(:title, :description, :image, :price, :category_id)
   end
 end
