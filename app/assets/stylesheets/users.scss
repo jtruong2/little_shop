@@ -13,6 +13,7 @@
 h1 {
   position: relative;
   left: -60px;
+  color: white;
 }
 .form-group {
   color: white;
@@ -21,4 +22,19 @@ h1 {
   position: relative;
   color: white;
   left: -210px;
+}
+#account {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  background-image: image-url("navbar_space.jpg");
+  border: 2px solid white;
+  h2 {
+    text-align: center;
+    color: lightgray;
+  }
+  p {
+    color: white;
+  }
+
 }

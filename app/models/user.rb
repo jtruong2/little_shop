@@ -8,6 +8,6 @@ class User < ApplicationRecord
   #validates :zipcode, presence: true
   #validates :phone, presence: true
   has_secure_password
-  enum role: %w(default, admin)
+  enum role: %w(default admin)
   has_many :orders
 end
