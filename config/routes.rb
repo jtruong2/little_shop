@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   resources :items, only: [:show]
   resources :categories, only: [:index, :show]
   resource :cart, only: [:create, :destroy, :show]
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show, :edit, :update]
   resources :orders, only: [:index, :show, :new, :create]
 end
