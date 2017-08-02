@@ -18,6 +18,6 @@ RSpec.describe "Admin visits orders status page" do
 
     expect(page).to have_content(orders[0].id)
     expect(page).to have_content(orders[0].order_phone)
-    expect(page).to have_link("Cancel")
+    expect(page).to have_button("Cancel")
   end
 end
