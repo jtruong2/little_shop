@@ -2,57 +2,59 @@
   <div class="container">
     <h1>Admin Dashboard</h1>
 
-<h2>Orders by Status</h2>
-<table>
-  <tr>
-    <th>Status</th>
-    <th>Count</th>
-  </tr>
-  <tr>
-    <td><%= link_to "Ordered", orders_path(status: "ordered") %></td>
-    <td><%= Order.ordered_count %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "Paid", orders_path(status: "paid") %></td>
-    <td><%= Order.paid_count  %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "Cancelled", orders_path(status: "cancelled") %></td>
-    <td><%= Order.cancelled_count %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "Completed", orders_path(status: "completed") %></td>
-    <td><%= Order.completed_count %></td>
-  </tr>
-</table>
+      <h2>Orders by Status</h2>
+      <table>
+        <tr>
+          <th>Status</th>
+          <th>Count</th>
+        </tr>
+        <tr>
+          <td><%= link_to "Ordered", orders_path(status: "ordered") %></td>
+          <td><%= Order.ordered_count %></td>
+        </tr>
+        <tr>
+          <td><%= link_to "Paid", orders_path(status: "paid") %></td>
+          <td><%= Order.paid_count  %></td>
+        </tr>
+        <tr>
+          <td><%= link_to "Cancelled", orders_path(status: "cancelled") %></td>
+          <td><%= Order.cancelled_count %></td>
+        </tr>
+        <tr>
+          <td><%= link_to "Completed", orders_path(status: "completed") %></td>
+          <td><%= Order.completed_count %></td>
+        </tr>
+      </table>
 
 
 
-<h2>All Orders</h2>
-<table>
-  <tr>
-    <th>Address</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zipcode</th>
-    <th>Phone</th>
-    <th>Subtotal</th>
-    <th>Total</th>
-    <th>Status</th>
-  </tr>
-<% @orders.each do |order| %>
-  <tr>
-    <td><%= order.order_address %></td>
-    <td><%= order.order_city %></td>
-    <td><%= order.order_state %></td>
-    <td><%= order.order_zipcode %></td>
-    <td><%= order.order_phone %></td>
-    <td><%= order.subtotal %></td>
-    <td><%= order.total %></td>
-    <td><%= order.status %></td>
-    <td><%= link_to "View Order", order_path(order.id) %></td>
-  </tr>
+    <h2>All Orders</h2>
+    <table>
+      <tr>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zipcode</th>
+        <th>Phone</th>
+        <th>Subtotal</th>
+        <th>Total</th>
+        <th>Status</th>
+      </tr>
+      <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.order_address %></td>
+        <td><%= order.order_city %></td>
+        <td><%= order.order_state %></td>
+        <td><%= order.order_zipcode %></td>
+        <td><%= order.order_phone %></td>
+        <td><%= order.subtotal %></td>
+        <td><%= order.total %></td>
+        <td><%= order.status %></td>
+        <td><%= link_to "View Order", order_path(order.id) %></td>
+      </tr>
 
-<% end %>
-</table>
+      <% end %>
+    </table>
 <%= link_to "items index", admin_items_path %>
+</div>
+</div>
