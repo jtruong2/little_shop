@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
   before_action :blank_order, only: [:new, :create, :fill_in, :set_address]
+  before_action :validate_path, only: [:index]
 
   def index
     @user = current_user
-    @orders = @user.orders
   end
 
   def new
@@ -24,6 +24,24 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @items = @order.items
     @items_info = @order.item_orders
+  end
+
+  def status_cancel
+    order = Order.find(params[:order_id])
+    order.cancelled!
+    redirect_to order_path(order)
+  end
+
+  def status_paid
+    order = Order.find(params[:order_id])
+    order.paid!
+    redirect_to order_path(order)
+  end
+
+  def status_completed
+    order = Order.find(params[:order_id])
+    order.completed!
+    redirect_to order_path(order)
   end
 
   private
@@ -62,5 +80,13 @@ class OrdersController < ApplicationController
      item_order.quantity = qty; item_order.sale_price = item.price
      item_order.save
    end
+  end
+
+  def validate_path
+    if request.referrer == admin_dashboard_url || params[:status] != nil
+      @orders = Order.where(status: params[:status])
+    else
+      @orders = current_user.orders
+    end
   end
 end

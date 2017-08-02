@@ -1,0 +1,13 @@
+<% if current_user.admin? %>
+  <% if @order.status == "ordered" || @order.status == "paid" %>
+    <%= button_to "Cancel", order_status_cancel_path(@order) %>
+  <% end %>
+
+  <% if @order.status == "ordered" %>
+    <%= button_to "Mark as paid", order_status_paid_path(@order) %>
+  <% end %>
+
+  <% if @order.status == "paid" %>
+    <%=  button_to "Mark as completed", order_status_completed_path(@order)%>
+  <% end %>
+<% end %>

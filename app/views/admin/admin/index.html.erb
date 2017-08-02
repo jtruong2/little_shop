@@ -2,29 +2,30 @@
   <div class="container">
     <h1>Admin Dashboard</h1>
 
-    <h2>Orders by Status</h2>
-    <table>
-      <tr>
-        <th>Status</th>
-        <th>Count</th>
-      </tr>
-      <tr>
-        <td>Ordered</td>
-        <td><%= Order.ordered_count %></td>
-      </tr>
-      <tr>
-        <td>Paid</td>
-        <td><%= Order.paid_count  %></td>
-      </tr>
-      <tr>
-        <td>Cancelled</td>
-        <td><%= Order.cancelled_count %></td>
-      </tr>
-      <tr>
-        <td>Completed</td>
-        <td><%= Order.completed_count %></td>
-      </tr>
-    </table>
+      <h2>Orders by Status</h2>
+      <table>
+        <tr>
+          <th>Status</th>
+          <th>Count</th>
+        </tr>
+        <tr>
+          <td><%= link_to "Ordered", orders_path(status: "ordered") %></td>
+          <td><%= Order.ordered_count %></td>
+        </tr>
+        <tr>
+          <td><%= link_to "Paid", orders_path(status: "paid") %></td>
+          <td><%= Order.paid_count  %></td>
+        </tr>
+        <tr>
+          <td><%= link_to "Cancelled", orders_path(status: "cancelled") %></td>
+          <td><%= Order.cancelled_count %></td>
+        </tr>
+        <tr>
+          <td><%= link_to "Completed", orders_path(status: "completed") %></td>
+          <td><%= Order.completed_count %></td>
+        </tr>
+      </table>
+
 
 
     <h2>All Orders</h2>
@@ -39,7 +40,7 @@
         <th>Total</th>
         <th>Status</th>
       </tr>
-    <% @orders.each do |order| %>
+      <% @orders.each do |order| %>
       <tr>
         <td><%= order.order_address %></td>
         <td><%= order.order_city %></td>
@@ -51,8 +52,9 @@
         <td><%= order.status %></td>
         <td><%= link_to "View Order", order_path(order.id) %></td>
       </tr>
-    <% end %>
+
+      <% end %>
     </table>
-    <%= link_to "items index", admin_items_path %>
-  </div>
+<%= link_to "items index", admin_items_path %>
+</div>
 </div>

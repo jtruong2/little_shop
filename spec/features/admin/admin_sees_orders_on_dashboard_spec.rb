@@ -47,4 +47,22 @@ RSpec.describe "Admin visits admin dashboard" do
 
     expect(page).to have_link(exact_text: "View Order", :count=>8)
   end
+
+  it "sees links for each order status" do
+    admin = create(:user, role: 1)
+    orders = create_list(:order, 2)
+    orders1 = create_list(:order, 2, status: 1)
+    orders2 = create_list(:order, 2, status: 2)
+    orders3 = create_list(:order, 2, status: 3)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+    visit admin_dashboard_path
+
+    expect(current_path).to eq('/admin/dashboard')
+    expect(page).to have_css("td a", :text => "Ordered")
+    expect(page).to have_css("td a", :text => "Paid")
+    expect(page).to have_css("td a", :text => "Cancelled")
+    expect(page).to have_css("td a", :text => "Completed")
+  end
 end
