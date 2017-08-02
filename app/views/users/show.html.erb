@@ -4,7 +4,6 @@
     <p><%= @user.email %></p>
     <p><%= @user.address %><br/><%= @user.city %>, <%= @user.state %> <%= @user.zipcode %></p>
     <p><%= @user.phone %></p>
+    <%= link_to 'Edit', edit_user_path(@user)%>
   </div>
 </div>
-<%= link_to 'Edit', edit_user_path(@user) %>
-

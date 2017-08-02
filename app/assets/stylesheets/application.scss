@@ -26,4 +26,11 @@
  @import "admin-items.scss";
  body {
    background-image: image-url("background.jpg");
+   padding-top: 65px;
+   h1 {
+     text-shadow: 2px 2px #ff0000;
+   }
+   .footer {
+     color: white;
+   }
  }
