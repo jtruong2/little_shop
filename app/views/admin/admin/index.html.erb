@@ -47,6 +47,8 @@
     <td><%= order.subtotal %></td>
     <td><%= order.total %></td>
     <td><%= order.status %></td>
+    <td><%= link_to "View Order", order_path(order.id) %></td>
   </tr>
+
 <% end %>
 </table>
