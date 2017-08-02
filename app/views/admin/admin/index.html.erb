@@ -7,22 +7,23 @@
     <th>Count</th>
   </tr>
   <tr>
-    <td>Ordered</td>
+    <td><%= link_to "Ordered", orders_path(status: "ordered") %></td>
     <td><%= Order.ordered_count %></td>
   </tr>
   <tr>
-    <td>Paid</td>
+    <td><%= link_to "Paid", orders_path(status: "paid") %></td>
     <td><%= Order.paid_count  %></td>
   </tr>
   <tr>
-    <td>Cancelled</td>
+    <td><%= link_to "Cancelled", orders_path(status: "cancelled") %></td>
     <td><%= Order.cancelled_count %></td>
   </tr>
   <tr>
-    <td>Completed</td>
+    <td><%= link_to "Completed", orders_path(status: "completed") %></td>
     <td><%= Order.completed_count %></td>
   </tr>
 </table>
+
 
 
 <h2>All Orders</h2>

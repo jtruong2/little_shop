@@ -1,0 +1,17 @@
+<% if current_user.admin? %>
+  <% unless params[:status] == "ordered" %>
+    <%= link_to "Ordered", orders_path(status: "ordered") %>
+  <% end %>
+
+  <% unless params[:status] == "paid" %>
+    <%= link_to "Paid", orders_path(status: "paid") %>
+  <% end %>
+
+  <% unless params[:status] == "cancelled" %>
+    <%= link_to "Cancelled", orders_path(status: "cancelled") %>
+  <% end %>
+
+  <% unless params[:status] == "completed" %>
+    <%= link_to "Completed", orders_path(status: "completed") %>
+  <% end %>
+<% end %>

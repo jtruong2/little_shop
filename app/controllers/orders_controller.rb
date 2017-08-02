@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
   before_action :blank_order, only: [:new, :create, :fill_in, :set_address]
+  before_action :validate_path, only: [:index]
 
   def index
     @user = current_user
-    @orders = @user.orders
   end
 
   def new
@@ -62,5 +62,13 @@ class OrdersController < ApplicationController
      item_order.quantity = qty; item_order.sale_price = item.price
      item_order.save
    end
+  end
+
+  def validate_path
+    if request.referrer == admin_dashboard_url || params[:status] != nil
+      @orders = Order.where(status: params[:status])
+    else
+      @orders = current_user.orders
+    end
   end
 end
