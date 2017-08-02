@@ -18,5 +18,7 @@
 
 .byebug_history
 
+/spec/.DS_Store
+
 # Ignore application configuration
 /config/application.yml

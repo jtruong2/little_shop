@@ -25,6 +25,22 @@ class Order < ApplicationRecord
     updated_at.to_formatted_s(:long)
   end
 
+  def self.ordered_count
+    Order.where(status: 0).count
+  end
+
+  def self.paid_count
+    Order.where(status: 1).count
+  end
+
+  def self.cancelled_count
+    Order.where(status: 2).count
+  end
+
+  def self.completed_count
+    Order.where(status: 3).count
+  end
+
   private
 
   def fill_order_info

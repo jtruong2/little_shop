@@ -1,2 +1,55 @@
 <h1>Admin Dashboard</h1>
+
+<h2>Orders by Status</h2>
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Count</th>
+  </tr>
+  <tr>
+    <td>Ordered</td>
+    <td><%= Order.ordered_count %></td>
+  </tr>
+  <tr>
+    <td>Paid</td>
+    <td><%= Order.paid_count  %></td>
+  </tr>
+  <tr>
+    <td>Cancelled</td>
+    <td><%= Order.cancelled_count %></td>
+  </tr>
+  <tr>
+    <td>Completed</td>
+    <td><%= Order.completed_count %></td>
+  </tr>
+</table>
+
+
+<h2>All Orders</h2>
+<table>
+  <tr>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zipcode</th>
+    <th>Phone</th>
+    <th>Subtotal</th>
+    <th>Total</th>
+    <th>Status</th>
+  </tr>
+<% @orders.each do |order| %>
+  <tr>
+    <td><%= order.order_address %></td>
+    <td><%= order.order_city %></td>
+    <td><%= order.order_state %></td>
+    <td><%= order.order_zipcode %></td>
+    <td><%= order.order_phone %></td>
+    <td><%= order.subtotal %></td>
+    <td><%= order.total %></td>
+    <td><%= order.status %></td>
+    <td><%= link_to "View Order", order_path(order.id) %></td>
+  </tr>
+
+<% end %>
+</table>
 <%= link_to "items index", admin_items_path %>
