@@ -9,7 +9,7 @@ RSpec.describe "Admin visits admin dashboard" do
 
     visit admin_dashboard_path
 
-    expect(page).to have_css("h2", "All Orders")
+    expect(page).to have_css("h2", text: "All Orders")
     expect(page).to have_content(order1.order_address)
     expect(page).to have_content(order1.order_city)
     expect(page).to have_content(order2.order_address)
@@ -27,9 +27,10 @@ RSpec.describe "Admin visits admin dashboard" do
 
     visit admin_dashboard_path
 save_and_open_page
-    expect(page).to have_content("Ordered: 2")
-    expect(page).to have_content("Paid: 2")
-    expect(page).to have_content("Cancelled: 2")
-    expect(page).to have_content("Completed: 2")
+    expect(page).to have_css("td", text: "Ordered")
+    expect(page).to have_css("td", text: "Paid")
+    expect(page).to have_css("td", text: "Cancelled")
+    expect(page).to have_css("td", text: "Completed")
+    expect(page).to have_css("td", exact_text: "2", :count => 4)
   end
 end

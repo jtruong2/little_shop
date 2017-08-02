@@ -1,10 +1,29 @@
 <h1>Admin Dashboard</h1>
 
 <h2>Orders by Status</h2>
-  Ordered: <%= @orders.where(status: 0).length  %><br>
-  Paid: <%= @orders.where(status: 1).length  %><br>
-  Cancelled: <%= @orders.where(status: 2).length  %><br>
-  Completed: <%= @orders.where(status: 3).length %><br>
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Count</th>
+  </tr>
+  <tr>
+    <td>Ordered</td>
+    <td><%= Order.ordered_count %></td>
+  </tr>
+  <tr>
+    <td>Paid</td>
+    <td><%= Order.paid_count  %></td>
+  </tr>
+  <tr>
+    <td>Cancelled</td>
+    <td><%= Order.cancelled_count %></td>
+  </tr>
+  <tr>
+    <td>Completed</td>
+    <td><%= Order.completed_count %></td>
+  </tr>
+</table>
+
 
 <h2>All Orders</h2>
 <table>
