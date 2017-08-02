@@ -46,15 +46,5 @@ RSpec.describe "Admin visits admin dashboard" do
     visit admin_dashboard_path
 
     expect(page).to have_link(exact_text: "View Order", :count=>8)
-
-    # click_on "View Order", :match => :first
-    #
-    # expect(page).to have_content(orders[0].order_phone)
-    # expect(page).to have_content(orders[0].order_address)
   end
 end
-
-# expect(page)to have_link("Ordered")
-# expect(page)to have_link("Paid")
-# expect(page)to have_link("Cancelled")
-# expect(page)to have_link("Completed")
