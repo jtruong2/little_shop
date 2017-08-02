@@ -22,3 +22,6 @@
 
 # Ignore application configuration
 /config/application.yml
+
+/app/Pasted image at 2017_08_02 04_18 PM.png
+/app/views/orders/_admin.html.erb
