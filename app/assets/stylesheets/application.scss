@@ -13,14 +13,17 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
- @import "welcome.scss";
  @import "navbar.scss";
  @import "items.scss";
+ @import "welcome.scss";
  @import "carts.scss";
  @import "items.scss";
  @import "categories.scss";
  @import "sessions.scss";
  @import "users.scss";
+ @import "orders.scss";
+ @import "admin-index.scss";
+ @import "admin-items.scss";
  body {
-   background-image: url("background.jpg");
+   background-image: image-url("background.jpg");
  }

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :current_user, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -22,6 +23,18 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       @user = User.find(session[:user_id])
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @user.update(user_params)
+      flash[:notice] = "#{@user.email} updated"
+      redirect_to dashboard_path
+    else
+      render :edit
     end
   end
 

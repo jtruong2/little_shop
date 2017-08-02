@@ -1,0 +1,17 @@
+#admin-items {
+  width: 300px;
+  height: 500px;
+  margin: auto;
+}
+#admin-index {
+  width: 500px;
+  height: 100%;
+  margin: auto;
+  img {
+    width: 30%;
+    object-fit: scale-down;
+  }
+  p {
+    font-size: 100%;
+  }
+}

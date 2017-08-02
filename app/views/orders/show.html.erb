@@ -1,20 +1,20 @@
-<h1>Order ID: <%= @order.id %></h1>
-<li><p>Ordered At: <%= @order.order_date %></p></li>
-<li><p>Total: <%= @order.total %></p></li>
-<li><p>Address: <%= @order.delivery_address %></p></li>
-<li><p>Phone number: <%= @order.order_phone %></li>
-<li><p>Status: <%= @order.status.capitalize %></li>
+<div id="ordershow" class="jumbotron">
+  <div class="container">
+    <h2>Order ID: <%= @order.id %></h2>
+    <p>Ordered At: <%= @order.order_date %></p>
+    <p>Total: <%= @order.total %></p>
+    <p>Address: <%= @order.delivery_address %></p>
+    <p>Phone number: <%= @order.order_phone %></p>
+    <p>Status: <%= @order.status.capitalize %></p>
 
-<% unless @order.ordered? || @order.paid? %>
-  <li><p>Completed/Cancelled at: <%= @order.order_closed %></li>
-<% end %>
+    <% unless @order.ordered? || @order.paid? %>
+      <p>Completed/Cancelled at: <%= @order.order_closed %></p>
+    <% end %>
 
-<% @items.each do |item| %>
-  <%= link_to item.title, item_path(item) %>
-<% end %>
-
-<% @items_info.each do |f| %>
-  <p>Name: <%= Item.find(f.item_id).title  %></p>
-  <p>Quantity: <%= f.quantity %></p>
-  <p>Subtotal: <%= f.sale_price.to_i * f.quantity.to_i %></p>
-<% end %>
+    <% @items_info.each do |f| %>
+      <p>Name: <%= link_to Item.find(f.item_id).title, item_path(Item.find(f.item_id))  %></p>
+      <p>Quantity: <%= f.quantity %></p>
+      <p>Subtotal: <%= f.sale_price.to_i * f.quantity.to_i %></p>
+    <% end %>
+  </div>
+</div>

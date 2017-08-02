@@ -1,26 +1,22 @@
-<div id="cart" class="jumbotron">
-  <div class="container">
+<div class="jumbotron">
+  <div class="container"
+  <ul class="items_group">
     <% @items.each do |item| %>
-      <div class="row">
-        <div class="container">
-          <div class="col-md-8"><strong><%= item.title %></strong><%= image_tag(item.image) %>
-          <p class="info"><%= item.description %><p>
-          </div>
-
-          <div class="col-md-4">Price: <%= item.price %><br>
-          Qty: <%= @cart.count_of(item.id) %>
-          </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4"><p><strong id="carttitle"><%= item.title %></strong></p><br><div class="cartimg" ><%= image_tag(item.image) %></div></div>
+          <div class="col-md-8"><%= item.description %>Price: <%= item.price %>   <strong>Qty: <%= @cart.count_of(item.id) %></strong></div>
           <p class="subtotal">Subtotal: $<%= item.price * @cart.count_of(item.id) %></p>
           <% unless item.retired? %>
-            <%= button_to "Add Item", cart_path(item_id: item.id), class: "center-block btn btn-success" %>
+            <a id="cartadd"><%= button_to "Add Item", cart_path(item_id: item.id), class: "center-block btn btn-success" %>
           <% end %>
-          <%= button_to "Remove", cart_path(item_id: item.id), method: :delete, class: "center-block btn btn-danger" %>
+          <a id="cartremove"><%= button_to "Remove", cart_path(item_id: item.id), method: :delete, class: "center-block btn btn-danger" %></a>
         </div>
       </div>
     <% end %>
     <p class="total">Cart Total: $<%= @cart.total %></p>
     <% if current_user %>
-        <%= link_to "Checkout", orders_path, id: "create_order", method: :post %>
+        <%= link_to "Checkout", orders_path, id: "create_order", method: :post, class:"checkoutcart" %>
     <% else %>
         <%= link_to "Login or Register to Checkout", login_path %>
     <% end %>

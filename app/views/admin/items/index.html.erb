@@ -1,10 +1,17 @@
-<h1>Admin Items</h1>
-<% @items.each do |item| %>
-  <%= item.title %>
-  <%= item.description %>
-  <%= item.price %>
-  <%= item.category.name %>
-  <%= item.image %>
-  <%= link_to "Edit", edit_admin_item_path(item) %>
-<% end %>
-
+<div id="admin-index" class="jumbotron">
+  <div class="container">
+    <ul class="items_group">
+    <h1>Admin Items</h1>
+        <% @items.each do |item| %></p>
+          <p><%= image_tag(item.image) %></p>
+          <p><strong>title:</strong> <%= item.title %></p>
+          <p><strong>description:</strong> <%= item.description %></p>
+          <p><strong>price:</strong> <%= item.price %></p>
+          <p><strong>category:</strong> <%= item.category.name %></p>
+          <p><strong>status:</strong> <%= item.status.capitalize %>
+          <p><%= link_to "Edit", edit_admin_item_path(item) %></p>
+          <p><%= link_to "Item Page", item_path(item) %></p>
+      <% end %>
+    </ul>
+  </div>
+</div>
