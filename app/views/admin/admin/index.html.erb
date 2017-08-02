@@ -1,5 +1,11 @@
 <h1>Admin Dashboard</h1>
 
+<h2>Orders by Status</h2>
+  Ordered: <%= @orders.where(status: 0).length  %><br>
+  Paid: <%= @orders.where(status: 1).length  %><br>
+  Cancelled: <%= @orders.where(status: 2).length  %><br>
+  Completed: <%= @orders.where(status: 3).length %><br>
+
 <h2>All Orders</h2>
 <table>
   <tr>

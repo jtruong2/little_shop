@@ -4,4 +4,8 @@ class Admin::AdminController < Admin::BaseController
     @orders = Order.all
   end
 
+  private
+
+
+
 end
