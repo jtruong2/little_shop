@@ -14,10 +14,13 @@ Rails.application.routes.draw do
   get "/about", to: "welcome#about"
   get "/contact", to:"welcome#contact"
   get '/menu' => 'items#index', :as => :items
-  #post '/menu' => 'items#create'
   resources :items, only: [:show]
   resources :categories, only: [:index, :show]
   resource :cart, only: [:create, :destroy, :show]
   resources :users, only: [:new, :create, :show, :edit, :update]
-  resources :orders, only: [:index, :show, :new, :create]
+  resources :orders, only: [:index, :show, :new, :create] do
+    post "status_cancel", :action => :status_cancel
+    post "status_paid", :action => :status_paid
+    post "status_completed", :action => :status_completed
+  end
 end

@@ -26,6 +26,24 @@ class OrdersController < ApplicationController
     @items_info = @order.item_orders
   end
 
+  def status_cancel
+    order = Order.find(params[:order_id])
+    order.cancelled!
+    redirect_to order_path(order)
+  end
+
+  def status_paid
+    order = Order.find(params[:order_id])
+    order.paid!
+    redirect_to order_path(order)
+  end
+
+  def status_completed
+    order = Order.find(params[:order_id])
+    order.completed!
+    redirect_to order_path(order)
+  end
+
   private
 
   def blank_order
