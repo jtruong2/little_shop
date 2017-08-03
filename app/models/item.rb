@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :description, presence: true
   belongs_to :category
+  has_many :reviews
   has_many :item_orders
   has_many :orders, through: :item_orders
   enum status: %w(active retired)
