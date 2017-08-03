@@ -1,11 +1,3 @@
-#As an authenticated Admin: I can create an item.
-#An item must have a title, description and price.
-#An item must belong to at least one category.
-#The title and description cannot be empty.
-#The title must be unique for all items in the system.
-#The price must be a valid decimal numeric value and greater than zero.
-#Image must have default
-
 require 'rails_helper'
 RSpec.describe "Admin Creates Items" do
   it "a Admin can create item" do
