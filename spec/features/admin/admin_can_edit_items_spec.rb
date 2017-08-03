@@ -1,6 +1,3 @@
-#As an admin When I visit "admin/items" And I click "Edit"
-#Then my current path should be "/admin/items/:ITEM_ID/edit"
-#And I should be able to update title, description, image, and status
 require 'rails_helper'
 RSpec.describe "Admin Edits Items" do
   it "a Admin can edit an item" do

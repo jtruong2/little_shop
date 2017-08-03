@@ -1,6 +1,3 @@
-#As an Authenticated User I cannot view another user's private data (current or past orders, etc)
-#I cannot view the administrator screens or use admin functionality
-#I cannot make myself an admin
 RSpec.feature "User Authorization" do
   scenario "user cant access another users orders" do
     user = create(:user)
@@ -12,14 +9,7 @@ RSpec.feature "User Authorization" do
     visit '/orders'
     expect(page).to have_content(order.id)
     expect(page).to have_content(order1.id)
-
-    #visit '/users/2/orders'
-    #expect(page).to have_content(order.id)
-    #expect(page).to have_content(order1.id)
-
-    #visit '/users/100000/orders'
-    #expect(page).to have_content(order.id)
-    #expect(page).to have_content(order1.id)
+    #can't test other user's orders because every user can only access /orders
   end
   scenario "user cant access admin pages" do
     user = create(:user)
