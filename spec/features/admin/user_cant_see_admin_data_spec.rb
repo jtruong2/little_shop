@@ -9,14 +9,7 @@ RSpec.feature "User Authorization" do
     visit '/orders'
     expect(page).to have_content(order.id)
     expect(page).to have_content(order1.id)
-
-    #visit '/users/2/orders'
-    #expect(page).to have_content(order.id)
-    #expect(page).to have_content(order1.id)
-
-    #visit '/users/100000/orders'
-    #expect(page).to have_content(order.id)
-    #expect(page).to have_content(order1.id)
+    #can't test other user's orders because every user can only access /orders
   end
   scenario "user cant access admin pages" do
     user = create(:user)
