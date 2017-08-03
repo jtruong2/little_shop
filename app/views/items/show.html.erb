@@ -11,7 +11,6 @@
   </div>
 </div>
 
-<%= render partial: 'reviews/form' %>
-
+<a id="reviews"><%= render partial: 'reviews/form' %>
 <h3>Reviews (<%= @item.reviews.size - 1 %>)</h3>
-<%= render partial: 'items/review', collection: @item.reviews.reverse %>
+<%= render partial: 'items/review', collection: @item.reviews.reverse %></a>
