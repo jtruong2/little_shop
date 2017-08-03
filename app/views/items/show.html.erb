@@ -11,6 +11,10 @@
   </div>
 </div>
 
-<a id="reviews"><%= render partial: 'reviews/form' %>
-<h3>Reviews (<%= @item.reviews.size - 1 %>)</h3>
-<%= render partial: 'items/review', collection: @item.reviews.reverse %></a>
+<div id="reviews" class="jumbotron">
+  <div class="container">
+     <%= render partial: 'reviews/form' %>
+     <h3>Reviews (<%= @item.reviews.size - 1 %>)</h3>
+     <%= render partial: 'items/review', collection: @item.reviews.reverse %></a>
+  </div>
+</div>
