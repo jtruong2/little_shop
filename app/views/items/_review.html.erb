@@ -1,0 +1,7 @@
+<div>
+  <% unless review.user.nil? %>
+    <h4>Review by <%= review.user.email %></h4>
+    <p><%= review.body %></a>
+    <p>Posted <%= review.post_date %></p>
+  <% end %>
+</div>
